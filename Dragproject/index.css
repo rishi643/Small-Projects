@@ -1,0 +1,83 @@
+.emptybox{
+    background-color:white;
+    display: inline-block;
+    width: 150px;
+    height: 160px;
+    border: 2px ;
+    border-style: double;
+    border-color: black;
+    text-align: center;
+    
+}
+body{
+    background-color: blanchedalmond;
+}
+.imop{
+    background-image:url('R (2).jpg');
+    background-size: cover;
+    width: 140px;
+    height: 130px;
+    cursor:grab;   
+    margin-left: 5px;
+}  
+.pok{
+    background-image: url('yuiu.jpg');
+    margin-left: 5px;
+   width: 150px;
+    height: 160px;
+    background-size: cover;
+    display: inline-block;
+}
+.uiop{
+    background-image: url('Beautiful Girl_784.jpg');
+    margin-left: 5px;
+   width: 140px;
+    height: 130px;
+    background-size: cover;
+}
+.border{
+    border: 3px solid rgb(245, 7, 86);
+   
+}
+.dashed{
+    border: 2px dashed black;
+}
+.hide{
+    display: none;
+}
+
+.borde{
+    border: 3px solid rgb(176, 39, 94);
+   
+}
+#h{
+    cursor: alias;
+}
+#uipoplkj
+{ margin-top: 0px;
+    margin-left: 0px;
+    padding-left: 3px;
+    list-style: none;
+    background-color: white;
+    font-weight: 2px;
+    width: 200px;
+    height: 100px;
+    border-radius: 4px;
+    border: 2px solid black;
+    
+}
+li{
+    margin-bottom: 7px;
+    box-shadow: 0px 1px 2px rgb(20, 24, 24)}
+    
+
+#o{
+    width: 210px;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+li:hover{
+    background-color: aliceblue;
+    cursor:pointer;
+
+}
