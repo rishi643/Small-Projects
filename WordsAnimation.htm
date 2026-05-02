@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Effect</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #words {
+            font-weight: normal;
+            font-size: 5rem;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        span {
+            font-size: 5rem;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            position: relative;
+            bottom: 1rem;
+            font-weight: lighter;
+        }
+    </style>
+</head>
+<body>
+    <div id="words"></div><span id="cursor">|</span>
+    
+    <script>
+        const click = new Audio("spacebar-click-keyboard-199448.mp3");
+        const cursor = document.getElementById('cursor');
+        const words = document.getElementById('words');
+        let hide = false;
+        let reverse = false;
+        const Google = "GOOGLE";
+        let count = 0;
+        let userInteracted = false;
+
+        // Ensure sound plays only after user interaction
+        document.addEventListener('click', () => {
+            userInteracted = true; // User interaction detected
+        });
+
+        setInterval(() => {
+            hide = !hide;
+            cursor.style.visibility = hide ? 'hidden' : 'visible';
+            
+         
+        }, 500);
+
+        setInterval(() => {
+            if (count == Google.length) reverse = true;
+            if (count == 0) reverse = false;
+
+            if (!reverse) {
+                words.innerText += Google[count];
+                count++;
+            } else {
+                count--;
+                words.innerText = words.innerText.substring(0, count);
+            }
+            if (userInteracted) {
+                click.play().catch(error => {
+                    console.error('Playback failed:', error);
+                });
+            }
+        }, 200);
+    </script>
+</body>
+</html>
