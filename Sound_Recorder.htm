@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>SOUND RECORDER</h1>
+    <div style="display: flex; flex-direction: column; gap: 2em; justify-content: center ; align-items: center; width: 100vw; height: 80vh;">
+         <audio id="qwe" controls></audio>
+        <button id="start">start</button> 
+        <button id="stop">stop</button>
+    </div>
+</body>
+<script>
+    let stop=document.getElementById('stop');
+    let start=document.getElementById('start');
+    let audio=document.getElementById('qwe');
+    
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
+        navigator.mediaDevices.getUserMedia({audio:true}).then(stream).catch(err=>{
+            console.log(err);
+        })
+    }
+    
+    let canrec=false;
+    let isrrecording=false;
+    
+    let recorder;
+    let chunks=[];
+    function stream(s){
+         recorder = new MediaRecorder(s);
+        recorder.ondataavailable=e=>{
+            chunks.push(e.data);
+        };
+        
+        recorder.onstop=e=>{
+            console.log(chunks);
+            
+            let blob=new Blob(chunks,{type:"audio/ogg; codecs=opus"});
+            chunks=[];
+            let url=window.URL.createObjectURL(blob);
+            console.log(url);
+            audio.src=url;
+            
+        };
+         canrec=true;
+    }
+start.addEventListener("click",()=>{
+    if(canrec==true){
+        recorder.start();
+    }
+    isrrecording=!isrrecording;
+})
+stop.addEventListener("click",()=>{
+    if(isrrecording){
+        recorder.stop();
+    }
+    isrrecording=!isrrecording;
+})
+</script>
+</html>
