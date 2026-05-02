@@ -1,0 +1,90 @@
+:root{
+   --margin:170px ;
+}
+
+
+#gameboard{
+    width: 100vw;
+    height: 30vh;
+    border: solid yellow 2px;
+    /* margin-left: calc(var(--margin)*2); */
+    margin-top: 500px;
+    position: absolute;
+    background-color: black;
+    margin-left: 0px;
+    
+
+}
+#man{
+ position: relative;
+ top: 305px;
+width: 200px;
+height: auto;
+z-index: 1;
+
+}
+.jump{
+animation: jump 0.5s  1;
+}
+#boss{
+   
+   position: relative;
+   left: 1133px;
+   top: 300px;
+   animation: boss 2s infinite;
+    
+}
+
+
+@keyframes boss{
+0%{
+    left: 1450px;
+}
+100%{
+    left: -1000px;
+}
+ 
+    
+}
+
+@keyframes jump {
+    0%{
+      top:305px
+    }
+    100%{
+        top: 100px;
+    }
+}
+@media only screen and (max-width:600px) {
+    #gameboard{
+        width: 100vw;
+        height: 30vh;
+        border: solid black 2px;
+        /* margin-left: calc(var(--margin)*2); */
+        margin-top: 300px;
+        position: absolute;
+        background-color: rgb(87, 42, 165);
+        margin-left: 0px;
+        
+    
+    }
+    #man{
+        width: 100px;
+        height: 110px;
+       
+        position: relative;
+        top: 185px;
+        border: solid black 4px;
+        border-radius:2px ;
+    }
+    #boss{
+   
+        position: relative;
+        left: 1133px;
+        top: 190px;
+        animation: boss 3s infinite;
+        width: 70px;
+        height: 70px;
+         
+     }
+}
